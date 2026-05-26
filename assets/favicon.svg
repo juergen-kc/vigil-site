@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+    <style>
+        rect.bg { fill: #F4EFE3; }
+        circle.globe { fill: none; stroke: #1A1A1A; stroke-width: 2.5; }
+        ellipse.ring { fill: none; stroke: #B5651D; stroke-width: 1.5; }
+        circle.dot { fill: #B5651D; }
+        @media (prefers-color-scheme: dark) {
+            rect.bg { fill: #0B1220; }
+            circle.globe { stroke: #B8E5EA; }
+            ellipse.ring { stroke: #F2A623; }
+            circle.dot { fill: #F2A623; }
+        }
+    </style>
+    <rect class="bg" width="64" height="64" rx="12"/>
+    <!-- Globe outline -->
+    <circle class="globe" cx="32" cy="34" r="18"/>
+    <!-- Orbital ring (the watcher's orbit) -->
+    <ellipse class="ring" cx="32" cy="34" rx="22" ry="6" transform="rotate(-12 32 34)"/>
+    <!-- The eye / watcher dot -->
+    <circle class="dot" cx="32" cy="14" r="3"/>
+</svg>

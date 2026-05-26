@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — Vigil</title>
+    <meta name="description" content="Vigil keeps your data on your device. No accounts, no telemetry, no third-party SDKs that collect data.">
+    <link rel="icon" type="image/svg+xml" href="/vigil-site/assets/favicon.svg">
+    <link rel="stylesheet" href="/vigil-site/assets/styles.css">
+</head>
+<body>
+    <main>
+        <header>
+            <a class="brand" href="/vigil-site/">vigil<span class="pulse" aria-hidden="true"></span></a>
+        </header>
+
+        <h1>Privacy Policy</h1>
+        <p class="subtitle">What Vigil collects, what Vigil transmits, and what Vigil stores. Short version: as little as possible.</p>
+
+        <dl class="meta">
+            <dt>Effective date</dt><dd>2026-05-26</dd>
+            <dt>App</dt><dd>Vigil (macOS and visionOS)</dd>
+            <dt>Developer</dt><dd>Juergen Klaassen / Klaassen Consulting</dd>
+        </dl>
+
+        <h2>What Vigil collects</h2>
+        <p>Nothing on a Vigil-operated server. Vigil has no backend. There is no account to create, no login, and no telemetry pipeline reporting your activity to us.</p>
+
+        <h2>What Vigil stores locally</h2>
+        <p>On your device only, never transmitted anywhere by Vigil:</p>
+        <ul class="bare">
+            <li>Your watchlist (saved locations), via Apple&rsquo;s SwiftData framework.</li>
+            <li>Your settings: chosen layer toggles, appearance preferences, sort modes, ambient-mode preferences.</li>
+            <li>A cache of recently fetched layer data (weather snapshots, earthquake feeds, news items, etc.) to avoid re-downloading them on every refresh. Cleared automatically when stale.</li>
+            <li>Your chat history with the AI briefing assistant, if you have enabled it.</li>
+            <li>Your tracked packages, if you use the Delivery Tracking layer.</li>
+            <li>License key (when the paid version ships), stored in the system Keychain.</li>
+            <li>Optional API keys you provide (Claude, OpenSky) &mdash; stored in the system Keychain. Never logged, never transmitted to Vigil.</li>
+        </ul>
+        <p>Resetting Vigil from the system Settings app deletes all of the above.</p>
+
+        <h2>What Vigil transmits, and to whom</h2>
+        <p>Vigil fetches data from the providers you have enabled. We act as the conductor; the providers are the orchestra. Each network request you trigger flows directly from your device to the provider you chose:</p>
+        <ul class="bare">
+            <li><strong>WeatherKit</strong> (<code>weatherkit.apple.com</code>) &mdash; weather forecasts. Operated by Apple. <a href="https://developer.apple.com/weatherkit/data-source-attribution/">Attribution &amp; data source notice</a>.</li>
+            <li><strong>USGS</strong> (<code>earthquake.usgs.gov</code>) &mdash; earthquake event feed. Public-domain data.</li>
+            <li><strong>OpenSky Network</strong> (<code>opensky-network.org</code>) &mdash; live flight tracking. Optional account for higher rate limits.</li>
+            <li><strong>FlightRadar24</strong> (<code>flightradar24.com</code>) &mdash; supplemental flight data.</li>
+            <li><strong>Open-Meteo</strong> (<code>open-meteo.com</code>) &mdash; air-quality index.</li>
+            <li><strong>RainViewer</strong> (<code>rainviewer.com</code>) &mdash; weather radar tile imagery.</li>
+            <li><strong>RSS / Atom feed servers</strong> you add yourself &mdash; news layer.</li>
+            <li><strong>Carrier tracking APIs</strong> &mdash; only when you add a tracking number to the Delivery Tracking layer.</li>
+            <li><strong>Anthropic</strong> (<code>api.anthropic.com</code>) &mdash; only when you enable AI briefings or chat and supply your own Claude API key. Conversations are not stored or relayed by Vigil &mdash; they flow directly from your device to Anthropic with your key.</li>
+            <li><strong>Apple servers</strong> (<code>itunes.apple.com</code>, <code>sandbox.itunes.apple.com</code>) &mdash; for license/receipt validation when the paid version ships, and for TestFlight metadata during the beta.</li>
+        </ul>
+        <p>Each provider&rsquo;s privacy policy applies to the data you exchange with them. Vigil does not interpose on or log those exchanges.</p>
+
+        <h2>Crash reporting</h2>
+        <p>The macOS version of Vigil ships with <a href="https://github.com/microsoft/plcrashreporter">PLCrashReporter</a> for fault analysis. Crash reports are stored locally and require your explicit consent before being shared with the developer. The visionOS version uses Apple&rsquo;s built-in TestFlight crash reporting during the beta &mdash; that telemetry is governed by Apple&rsquo;s <a href="https://www.apple.com/legal/privacy/">privacy policy</a>, not Vigil&rsquo;s.</p>
+
+        <h2>What Vigil does not do</h2>
+        <ul class="bare">
+            <li>No analytics. No tracking pixels. No advertising identifiers.</li>
+            <li>No third-party SDKs that collect data.</li>
+            <li>No remote logging.</li>
+            <li>No cloud sync of watchlist, settings, or chat (CloudKit container is reserved for v1.1; entitlements are present but no data is synced today).</li>
+            <li>No background activity beyond what you have configured (e.g., scheduled layer refresh).</li>
+        </ul>
+
+        <h2>Calendar access</h2>
+        <p>If you enable the Calendar layer, Vigil reads upcoming events from your local Calendar database via Apple&rsquo;s EventKit, geocodes any addresses they contain, and renders them as pins on the globe. Event details remain on your device. Access requires explicit permission via the system prompt; you can revoke it at any time in System Settings.</p>
+
+        <h2>Children&rsquo;s privacy</h2>
+        <p>Vigil has no age-gated features and does not knowingly target users under 13. The app collects no personal information from anyone, including children.</p>
+
+        <h2>Contact</h2>
+        <p>Questions about this policy: <a href="mailto:juergen@klaassen.consulting">juergen@klaassen.consulting</a>.</p>
+
+        <h2>Changes to this policy</h2>
+        <p>If material changes are made to this policy, they will be published at this URL with an updated effective date. Vigil does not have a mechanism to notify existing installs of policy changes.</p>
+
+        <footer>
+            <a href="/vigil-site/">Home</a>
+            <a href="/vigil-site/support/">Support</a>
+            <a href="https://github.com/juergen-kc/Vigil">GitHub</a>
+            <a href="mailto:juergen@klaassen.consulting">Contact</a>
+        </footer>
+    </main>
+</body>
+</html>

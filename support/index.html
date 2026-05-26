@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — Vigil</title>
+    <meta name="description" content="Help, troubleshooting, and contact for Vigil — a spatial situation room for your Mac and Apple Vision Pro.">
+    <link rel="icon" type="image/svg+xml" href="/vigil-site/assets/favicon.svg">
+    <link rel="stylesheet" href="/vigil-site/assets/styles.css">
+</head>
+<body>
+    <main>
+        <header>
+            <a class="brand" href="/vigil-site/">vigil<span class="pulse" aria-hidden="true"></span></a>
+        </header>
+
+        <h1>Support</h1>
+        <p class="subtitle">Help, troubleshooting, and contact for Vigil.</p>
+
+        <h2>Contact</h2>
+        <p>For any question, bug report, or feature request, email <a href="mailto:juergen@klaassen.consulting">juergen@klaassen.consulting</a>. Responses usually within 1&ndash;2 business days.</p>
+
+        <h2>Getting Vigil</h2>
+
+        <h3>How do I install the visionOS version?</h3>
+        <p>The visionOS app is currently in TestFlight (closed beta). Email me with the Apple ID you want invited and I will add you to the beta group. After you accept the invitation, install the TestFlight app on your Vision Pro from the App Store, then tap &ldquo;Install&rdquo; on the Vigil entry.</p>
+
+        <h3>How do I install the macOS version?</h3>
+        <p>Download the latest signed and notarized <code>.dmg</code> from <a href="https://github.com/juergen-kc/Vigil/releases/latest">GitHub Releases</a>, drag Vigil into your Applications folder, and launch it. Future updates arrive automatically through Sparkle &mdash; the macOS auto-update framework.</p>
+
+        <h3>Is Vigil a subscription?</h3>
+        <p>No. macOS Vigil is free during the public beta. When the App Store version ships, Vigil will be a one-time purchase &mdash; not a subscription &mdash; and TestFlight beta participants get free Pro access during the beta period.</p>
+
+        <h2>Troubleshooting</h2>
+
+        <h3>The globe is blank or pins are missing</h3>
+        <p>Most layers fetch data over the network. If you just launched the app, give it 10&ndash;20 seconds to populate the first batch. If a specific layer stays empty, open Settings &rarr; Layers and confirm the layer is enabled. Some layers (Weather, Calendar) need explicit permission &mdash; the system prompt appears the first time you enable them.</p>
+
+        <h3>News items aren&rsquo;t appearing</h3>
+        <p>The News layer ships empty. Open Settings &rarr; News and add one or more RSS or Atom feed URLs. After the next refresh (every 15 minutes by default), news items will appear in the feed and as pins on the globe if a location can be extracted.</p>
+
+        <h3>Flights stop updating</h3>
+        <p>Vigil uses OpenSky Network for free flight tracking. OpenSky imposes per-minute rate limits on anonymous clients. If you fly the globe to a busy region, you may briefly exceed the limit; Vigil backs off and resumes automatically. For higher quotas, add OpenSky credentials in Settings &rarr; API Keys.</p>
+
+        <h3>AI features are locked or show &ldquo;Pro required&rdquo;</h3>
+        <p>AI briefings and chat are gated behind the Pro tier. If you&rsquo;re testing the visionOS app via TestFlight, Pro is unlocked automatically &mdash; if it still says locked, reinstall the app to force a fresh receipt check. On macOS, Pro activation will land with the App Store version; for now the macOS beta runs in free mode with weather + earthquake layers.</p>
+
+        <h3>AI chat says &ldquo;API key required&rdquo;</h3>
+        <p>Vigil uses a bring-your-own-key model for AI features. Get a Claude API key from <a href="https://console.anthropic.com/settings/keys">console.anthropic.com</a>, then paste it into Settings &rarr; AI &rarr; Claude API Key. The key is stored in your system Keychain and never leaves your device.</p>
+
+        <h3>Calendar layer shows nothing</h3>
+        <p>The Calendar layer needs Calendar access. The first time you enable it, the system prompts you to allow access. If you declined, you can re-enable it in System Settings &rarr; Privacy &amp; Security &rarr; Calendars (macOS) or Settings &rarr; Privacy &rarr; Calendars (visionOS). Events without a geocodable location are skipped &mdash; only events with addresses or coordinates appear as pins.</p>
+
+        <h3>Ambient mode doesn&rsquo;t cycle through my watchlist</h3>
+        <p>Ambient mode requires at least one saved watchlist entry to cycle through. Long-press any feature on the globe and choose &ldquo;Save to watchlist,&rdquo; then toggle Ambient mode from the toolbar. The globe will rotate to each location in sequence.</p>
+
+        <h2>FAQ</h2>
+
+        <h3>What data does Vigil send anywhere?</h3>
+        <p>Only what you trigger by enabling a layer or feature. See the full <a href="/vigil-site/privacy/">privacy policy</a> for the per-provider breakdown.</p>
+
+        <h3>Does Vigil sync between my Mac and Vision Pro?</h3>
+        <p>Not yet. Each install keeps its own watchlist and settings locally. The iCloud entitlements are in place to support sync in v1.1; until then, the two installs operate independently.</p>
+
+        <h3>Can I add my own data layer?</h3>
+        <p>Yes &mdash; Vigil exposes a <code>GlobeLayer</code> protocol family in the <code>VigilEngine</code> Swift package. See the <a href="https://github.com/juergen-kc/Vigil#layer-system">layer system docs</a> for the protocol surface and the existing layer implementations as reference.</p>
+
+        <h3>Why is Vigil source-available rather than open source?</h3>
+        <p>Vigil is shared on GitHub so curious developers can read the code, fork it for learning, and contribute fixes via pull request. The license restricts redistribution of paid builds and forks to the App Store. The full text is in the repo&rsquo;s <a href="https://github.com/juergen-kc/Vigil/blob/main/LICENSE">LICENSE</a> file.</p>
+
+        <h2>System requirements</h2>
+        <ul class="bare">
+            <li>macOS Vigil: macOS&nbsp;14 (Sonoma) or later. Apple Silicon or Intel.</li>
+            <li>visionOS Vigil: Apple Vision Pro running visionOS&nbsp;26 or later.</li>
+            <li>Network connection for layer data fetches (Vigil is local-first but most data is remote).</li>
+        </ul>
+
+        <h2>Report a bug or request a feature</h2>
+        <p>Email works without an account. For a public-facing channel, file an issue on <a href="https://github.com/juergen-kc/Vigil/issues">GitHub</a>. Please include your platform (macOS or visionOS), app version, and a brief description of what you were doing when the issue appeared.</p>
+
+        <footer>
+            <a href="/vigil-site/">Home</a>
+            <a href="/vigil-site/privacy/">Privacy</a>
+            <a href="https://github.com/juergen-kc/Vigil">GitHub</a>
+            <a href="mailto:juergen@klaassen.consulting">Contact</a>
+        </footer>
+    </main>
+</body>
+</html>

@@ -1,0 +1,288 @@
+/* vigil-site — token-faithful DAY/NIGHT auto-switching.
+   Mirrors the in-app palette: warm cream + saddle brown by day,
+   deep midnight + cyan glow + amber accent by night. The metaphor
+   maps to the globe's day/night terminator that Vigil renders. */
+
+:root {
+    /* DAY theme (light) — the warm side of the globe.
+       Paper-cream background, ink-dark text, amber accent
+       borrowed from the owl's eyes in the app icon. */
+    --background: #F4EFE3;
+    --surface: #ECE5D2;
+    --text: #1A1A1A;
+    --text-muted: #5A5550;
+    --text-dim: #6B655E;
+    --accent: #B5651D;        /* amber — owl-eye warmth */
+    --accent-soft: #E8D5B7;
+    --border: rgba(26, 26, 26, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* NIGHT theme (dark) — the cool side of the globe.
+           Midnight navy bg, cyan-teal text (owl-glow), amber
+           kept as the accent so links and CTAs read as warm. */
+        --background: #0B1220;
+        --surface: #131C2E;
+        --text: #B8E5EA;
+        --text-muted: #7FA8B0;
+        --text-dim: #6C8E96;
+        --accent: #F2A623;        /* amber — owl-eye */
+        --accent-soft: #4DD4E0;   /* cyan — sentinel glow */
+        --border: rgba(184, 229, 234, 0.10);
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--background);
+    color: var(--text);
+    font-family: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+    font-size: 1rem;
+    line-height: 1.6;
+    font-feature-settings: "ss01", "ss02";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 6rem;
+}
+
+header {
+    margin-bottom: 3rem;
+}
+
+.brand {
+    font-size: 1.25rem;
+    color: var(--text);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.4rem;
+}
+
+/* Tiny pulsing dot — Vigil's "the watcher is awake" tell.
+   Mirrors the AmbientModeController status indicator in-app. */
+.brand .pulse {
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--accent);
+    transform: translateY(-0.05rem);
+    animation: pulse 2.4s ease-in-out infinite;
+    box-shadow: 0 0 0.5rem var(--accent);
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.4; transform: translateY(-0.05rem) scale(0.85); }
+    50%      { opacity: 1;   transform: translateY(-0.05rem) scale(1); }
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 2rem 0 0.5rem;
+    color: var(--text);
+}
+
+h1 + .subtitle {
+    color: var(--text-muted);
+    margin: 0 0 2.5rem;
+    font-size: 1.05rem;
+}
+
+h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 2.5rem 0 0.75rem;
+    letter-spacing: -0.01em;
+}
+
+h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 1.75rem 0 0.5rem;
+}
+
+p {
+    margin: 0 0 1rem;
+    color: var(--text);
+}
+
+p.lead {
+    color: var(--text);
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+}
+
+ul {
+    margin: 0 0 1.5rem;
+    padding-left: 1.5rem;
+    color: var(--text);
+}
+
+li {
+    margin-bottom: 0.4rem;
+}
+
+ul.bare {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul.bare li::before {
+    content: "— ";
+    color: var(--text-dim);
+}
+
+a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+}
+
+a:hover {
+    text-decoration-thickness: 2px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 3rem 0;
+}
+
+figure {
+    margin: 2.5rem 0;
+}
+
+figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    display: block;
+}
+
+figcaption {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    margin-top: 0.75rem;
+    text-align: center;
+}
+
+/* Platform grid — two side-by-side cards for macOS + visionOS CTAs.
+   Collapses to single column under 480px (phone breakpoint). */
+.platforms {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2rem 0 3rem;
+}
+
+.platform {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.25rem 1.5rem;
+}
+
+.platform h3 {
+    margin: 0 0 0.25rem;
+    font-size: 1rem;
+}
+
+.platform .meta {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    margin: 0 0 1rem;
+}
+
+.platform .cta {
+    display: inline-block;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 1px;
+}
+
+.platform .cta:hover {
+    border-bottom-width: 2px;
+}
+
+footer {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+footer a {
+    color: var(--text-muted);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--text);
+    text-decoration: underline;
+}
+
+.meta {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    margin-bottom: 2rem;
+}
+
+.meta dt {
+    display: inline;
+    font-weight: 600;
+}
+
+.meta dt::after {
+    content: ": ";
+}
+
+.meta dd {
+    display: inline;
+    margin: 0 1.5rem 0 0;
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 2rem 1.25rem 4rem;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .platforms {
+        grid-template-columns: 1fr;
+    }
+}

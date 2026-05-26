@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vigil — A spatial situation room for your Mac and Apple Vision Pro</title>
+    <meta name="description" content="Vigil renders weather, earthquakes, flights, news, and more on a live 3D globe. On your Mac and Apple Vision Pro. Local-first, BYOK, no tracking.">
+    <meta property="og:title" content="Vigil — A spatial situation room for your Mac and Apple Vision Pro">
+    <meta property="og:description" content="Weather, earthquakes, flights, news, and more on a live 3D globe. Local-first, BYOK, no tracking.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://juergen-kc.github.io/vigil-site/">
+    <link rel="icon" type="image/svg+xml" href="/vigil-site/assets/favicon.svg">
+    <link rel="stylesheet" href="/vigil-site/assets/styles.css">
+</head>
+<body>
+    <main>
+        <header>
+            <a class="brand" href="/vigil-site/">vigil<span class="pulse" aria-hidden="true"></span></a>
+        </header>
+
+        <h1>A spatial situation room.</h1>
+        <p class="subtitle">Watch the world breathe — on your Mac, and on Apple Vision Pro.</p>
+
+        <p class="lead">Vigil renders real-time data as composable layers on a live 3D globe. Weather, earthquakes, flights, news, air quality, calendar events, package deliveries — each one a lens on the same world, all visible at a glance.</p>
+
+        <div class="platforms">
+            <div class="platform">
+                <h3>Apple Vision Pro</h3>
+                <p class="meta">visionOS&nbsp;26 — TestFlight beta</p>
+                <a class="cta" href="mailto:juergen@klaassen.consulting?subject=Vigil%20visionOS%20TestFlight">Request beta access &rarr;</a>
+            </div>
+            <div class="platform">
+                <h3>Mac</h3>
+                <p class="meta">macOS&nbsp;14 Sonoma or later</p>
+                <a class="cta" href="https://github.com/juergen-kc/Vigil/releases/latest">Download free &rarr;</a>
+            </div>
+        </div>
+
+        <h2>What it does</h2>
+        <ul class="bare">
+            <li>14 live data layers on a 3D globe: weather, earthquakes, live flights, news, air quality, weather radar, traffic, calendar, package tracking, and more.</li>
+            <li>Each layer renders as pins, decals, polylines, pulse rings, or heatmap billboards — chosen for the data, not the framework.</li>
+            <li>Tap any feature to fly the globe to it, open a detail window, and read AI-generated context.</li>
+            <li>Ambient mode auto-rotates the globe and cycles through your saved watchlist locations — a glanceable wall display.</li>
+            <li>Optional AI briefings &amp; chat. Bring your own Claude API key; the key never leaves your device.</li>
+        </ul>
+
+        <h2>What it doesn&rsquo;t do</h2>
+        <ul class="bare">
+            <li>No accounts. No login screen. No telemetry.</li>
+            <li>No remote sync of your watchlist or chat history (CloudKit container is reserved for v1.1).</li>
+            <li>No third-party SDKs that send data anywhere.</li>
+            <li>No subscription &mdash; one-time activation when the App Store version ships.</li>
+        </ul>
+
+        <h2>How to get it</h2>
+        <p><strong>Apple Vision Pro.</strong> The visionOS app is in TestFlight. Email <a href="mailto:juergen@klaassen.consulting?subject=Vigil%20visionOS%20TestFlight">juergen@klaassen.consulting</a> with the Apple ID you want invited. App Store release is targeting June 2026.</p>
+        <p><strong>Mac.</strong> The macOS app is free during the public beta. Download the latest signed&nbsp;+&nbsp;notarized build from <a href="https://github.com/juergen-kc/Vigil/releases/latest">GitHub Releases</a>. Updates arrive automatically via Sparkle.</p>
+
+        <h2>System requirements</h2>
+        <ul class="bare">
+            <li>macOS Vigil: macOS&nbsp;14 (Sonoma) or later. Apple Silicon or Intel.</li>
+            <li>visionOS Vigil: Apple Vision Pro running visionOS&nbsp;26 or later.</li>
+            <li>Optional: WeatherKit entitlement (active Apple Developer account) for the Weather layer.</li>
+            <li>Optional: Claude API key for AI briefings, chat, and news location extraction.</li>
+        </ul>
+
+        <footer>
+            <a href="/vigil-site/privacy/">Privacy</a>
+            <a href="/vigil-site/support/">Support</a>
+            <a href="https://github.com/juergen-kc/Vigil">GitHub</a>
+            <a href="mailto:juergen@klaassen.consulting">Contact</a>
+        </footer>
+    </main>
+</body>
+</html>
