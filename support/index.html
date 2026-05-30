@@ -29,7 +29,7 @@
         <p>Download the latest signed and notarized <code>.dmg</code> from <a href="https://github.com/juergen-kc/Vigil/releases/latest">GitHub Releases</a>, drag Vigil into your Applications folder, and launch it. Future updates arrive automatically through Sparkle &mdash; the macOS auto-update framework.</p>
 
         <h3>Is Vigil a subscription?</h3>
-        <p>No. macOS Vigil is free during the public beta. When the App Store version ships, Vigil will be a one-time purchase &mdash; not a subscription &mdash; and TestFlight beta participants get free Pro access during the beta period.</p>
+        <p>No. Vigil is not a subscription. The visionOS App Store version is free, with every layer and feature included. The macOS version is free during its public beta. If a paid Pro tier arrives in a future update, it will be a one-time unlock &mdash; never a subscription.</p>
 
         <h2>Troubleshooting</h2>
 
@@ -42,8 +42,8 @@
         <h3>Flights stop updating</h3>
         <p>Vigil uses OpenSky Network for free flight tracking. OpenSky imposes per-minute rate limits on anonymous clients. If you fly the globe to a busy region, you may briefly exceed the limit; Vigil backs off and resumes automatically. For higher quotas, add OpenSky credentials in Settings &rarr; API Keys.</p>
 
-        <h3>AI features are locked or show &ldquo;Pro required&rdquo;</h3>
-        <p>AI briefings and chat are gated behind the Pro tier. If you&rsquo;re testing the visionOS app via TestFlight, Pro is unlocked automatically &mdash; if it still says locked, reinstall the app to force a fresh receipt check. On macOS, Pro activation will land with the App Store version; for now the macOS beta runs in free mode with weather + earthquake layers.</p>
+        <h3>Why aren&rsquo;t the AI features responding?</h3>
+        <p>AI briefings and chat use a bring-your-own-key model &mdash; add your Anthropic Claude API key in Settings &rarr; AI, and until a key is present they stay inactive by design. On the visionOS App Store version, all layers and AI features are free; you only supply the key. (The macOS beta currently focuses on the weather and earthquake layers, with the full set planned as a one-time Pro unlock in a future update.)</p>
 
         <h3>AI chat says &ldquo;API key required&rdquo;</h3>
         <p>Vigil uses a bring-your-own-key model for AI features. Get a Claude API key from <a href="https://console.anthropic.com/settings/keys">console.anthropic.com</a>, then paste it into Settings &rarr; AI &rarr; Claude API Key. The key is stored in your system Keychain and never leaves your device.</p>
